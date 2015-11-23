@@ -1,6 +1,16 @@
 A theme made for traditional desktops (Titlebar>Menubar>Toolbar>Content)
 
-Main Features:
+# Contents
+
+* [Features](#features)
+* [Install](#install)
+* [Set the theme](#set-the-theme)
+* [FAQ](#faq)
+* [Bugs](#bugs)
+* [Todo](#todo)
+
+
+###Features
 
 * Dark and bright versions.
 * Customizable selection color.
@@ -10,14 +20,9 @@ Main Features:
 * GTK3 Headerbars are toolbars (no double titlebars)
 * uses colorful icons by default (no cheap mono icons)
 
-Todo:
+#####Whats included?
 
-* more consistent look for the dark themes
-* improve the theme
-
-####Whats included?
-
-* GTK+ V2 theme(req. the mist and pixbuf engines)
+* GTK+ V2 theme(req. the mist and pixbuf GTK+ engine)
 * GTK+ V3.14/16 theme(those themes are abandoned)
 * GTK+ V3.18 theme(the current default GTK3 theme)
 * Qt4/5([Kvantum engine](https://github.com/tsujan/Kvantum/tree/master/Kvantum)) themes
@@ -63,7 +68,7 @@ bash x-gtk3-buildgresource.sh
 
 You might want to have a look into the EXTRA folder for more content/themes.
 
-#### Setting the theme
+###Set the theme
 ##### xfconf(Xfce only):
 
 ```
@@ -92,7 +97,7 @@ gtk-menu-images=true
 
 for Qt4 use qtconfig and for Qt5 use [Qt5ct](http://sourceforge.net/projects/qt5ct/)
 
-### FAQ:
+###FAQ:
 
 ##### Before any questions please have a look into the settings files!
 
@@ -102,6 +107,8 @@ for Qt4 use qtconfig and for Qt5 use [Qt5ct](http://sourceforge.net/projects/qt5
 ```
 
 ##### Where to install/link the extra themes/configs?
+
+Note: the dirs might differ in your Distribution!
 
 ###### theme dirs(SYSPREFIX=/usr):
 
@@ -122,7 +129,7 @@ for Qt4 use qtconfig and for Qt5 use [Qt5ct](http://sourceforge.net/projects/qt5
 ```
 ~/.kde/share/config/kdeglobals
 ```
-- Aurorae(abandoned, the only available Aurora theme is the old default theme!)
+- Aurorae(abandoned, the only available Aurora theme is the old default theme!((EXTRAS/WinDecos/Glare-default)))
 
 ```
 /usr/share/apps/aurorae/themes/<themedir>
@@ -164,6 +171,11 @@ $HOME/.qmmp/skins/<theme>.wsz
 ```
 /usr/share/slim/themes/<themedir>
 ```
-####Bugs
+###Bugs
 
 * since GTK3.16 I use dots as arrows because GTK3 makes it impossible to theme arrows within the toolkit theme.
+
+###Todo:
+
+* more consistent look for the dark themes
+* improve the theme
