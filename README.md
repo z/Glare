@@ -20,7 +20,7 @@ Todo:
 * GTK+ V2 theme(req. the mist and pixbuf engines)
 * GTK+ V3.14/16 theme(those themes are abandoned)
 * GTK+ V3.18 theme(the current default GTK3 theme)
-* Qt4/5(Kvantum engine) themes
+* Qt4/5([Kvantum engine](https://github.com/tsujan/Kvantum/tree/master/Kvantum)) themes
 * Xfwm4, Metacity/Marco theme (there are many more in the EXTRAS/WinDecos folder)
 * matching Winamp 2.x(QMMP, Audacious) Skin
 * LXQt panel theme
@@ -88,7 +88,9 @@ gtk-theme-name=GlareYang
 gtk-application-prefer-dark-theme=false
 gtk-menu-images=true
 ```
-*Note there are many more settings for each GTK toolkit: [GTK2](https://developer.gnome.org/gtk2/stable/GtkSettings.html#GtkSettings.properties), [GTK3](https://developer.gnome.org/gtk3/stable/GtkSettings.html#GtkSettings) *
+*Note there are many more settings for each GTK toolkit: [GTK2](https://developer.gnome.org/gtk2/stable/GtkSettings.html#GtkSettings.properties), [GTK3](https://developer.gnome.org/gtk3/stable/GtkSettings.html#GtkSettings)
+
+for Qt4 use qtconfig and for Qt5 use [Qt5ct](http://sourceforge.net/projects/qt5ct/)
 
 ### FAQ:
 
