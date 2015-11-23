@@ -1,0 +1,117 @@
+# Name: GlareYang
+# Author: sxsixfive <sixsixfive.deviantart.com>
+
+# Menu settings
+menu.title.bg: Flat Border Solid
+menu.title.bg.color: rgb:40/7d/ec
+menu.title.bg.border.color: #ff00ff
+menu.title.text.color: #ffffff
+menu.title.text.justify: Right
+
+menu.items.bg: Flat Solid
+menu.items.bg.color: #ffffff
+menu.items.text.color: #555555
+menu.items.disabled.text.color: #dadada
+
+menu.items.active.bg: Flat Vertical
+menu.items.active.bg.color: rgb:40/7d/ec
+menu.items.active.text.color: #fafafa
+menu.separator.color: #cccccc
+
+# Window settings (focused)
+window.active.title.bg: Flat Border Solid
+window.active.title.bg.color: rgb:40/7d/ec
+
+window.active.label.bg: Parentrelative
+window.active.label.text.color: rgb:ff/ff/ff
+
+window.active.handle.bg: Flat Border Solid
+window.active.handle.bg.color: rgb:40/7d/ec
+
+window.active.grip.bg: Flat Border Solid
+window.active.grip.bg.color: rgb:40/7d/ec
+
+window.active.button.unpressed.bg: Flat Solid
+window.active.button.unpressed.bg.color: rgb:40/7d/ec
+window.active.button.unpressed.image.color: #ffffff
+
+window.active.button.pressed.bg: Flat Solid
+window.active.button.pressed.bg.color: rgb:40/7d/ec
+window.active.button.pressed.image.color: #ffffff
+
+window.active.button.disabled.bg: Flat Solid
+window.active.button.disabled.bg.color: rgb:40/7d/ec
+window.active.button.disabled.image.color: rgb:40/7d/ec
+
+window.active.button.hover.bg: Flat Vertical
+window.active.button.hover.bg.color: rgb:40/7d/ec
+window.active.button.hover.image.color: #ffffff
+
+window.active.button.toggled.bg: Flat Solid
+window.active.button.toggled.bg.color: rgb:40/7d/ec
+window.active.button.toggled.image.color: #ffffff
+
+window.active.title.bg.border.color: rgb:32/62/b9
+
+window.active.border.color: #656565
+window.active.title.separator.color: rgb:32/62/b9
+
+# Window settings (unfocused)
+window.inactive.title.bg: Flat Solid
+window.inactive.title.bg.color: rgb:32/62/b9
+
+window.inactive.label.bg: Parentrelative
+window.inactive.label.text.color: #fafafa
+
+window.inactive.handle.bg: Flat Solid
+window.inactive.handle.bg.color: #ff00ff
+
+window.inactive.grip.bg: Flat Solid
+window.inactive.grip.bg.color: #ff00ff
+
+window.inactive.button.unpressed.bg: Flat Vertical
+window.inactive.button.unpressed.bg.color: #fafafa
+window.inactive.button.unpressed.image.color: #5a5a5a
+
+window.inactive.button.pressed.bg: Flat Vertical
+window.inactive.button.pressed.bg.color: #fafafa
+window.inactive.button.pressed.image.color: #5a5a5a
+
+window.inactive.button.disabled.bg: Flat Vertical
+window.inactive.button.disabled.bg.color: #fafafa
+window.inactive.button.disabled.image.color: #5a5a5a
+
+window.inactive.button.hover.bg: Flat Vertical
+window.inactive.button.hover.bg.color: #fafafa
+window.inactive.button.hover.image.color: #5a5a5a
+
+window.inactive.button.toggled.bg: Flat Vertical
+window.inactive.button.toggled.bg.color: #fafafa
+window.inactive.button.toggled.image.color: #5a5a5a
+
+window.inactive.border.color: #ff00ff
+window.inactive.title.separator.color: #333333
+
+### OSD
+###make the OSD grey or dockapps look terrible
+osd.border.width:1
+osd.border.color:#555555
+
+osd.bg: flat
+osd.bg.color:#888888
+
+osd.label.bg: parentrelative
+osd.label.text.color:#333333
+
+### Everything else
+border.width: 1
+padding.width: 4
+window.handle.width: 5
+window.client.padding.width: 0
+window.label.text.justify: Center
+menu.overlap: 0
+
+### Fonts
+window.active.label.text.font:pixelsize=12:shadow=n:shadowtint=0:shadowoffset=0
+window.inactive.label.text.fontpixelsize=12:shadow=n:shadowtint=0:shadowoffset=0
+menu.title.text.fontpixelsize=1:shadow=n:shadowtint=0
