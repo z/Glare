@@ -102,7 +102,7 @@ gtk-menu-images=true
 ##### Where to install/link the extra themes/configs?
 
 ###### theme dirs(SYSPREFIX=/usr):
-```
+
 - KDE color scheme
 
 ```
