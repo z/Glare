@@ -50,6 +50,8 @@ ln -s Glare/GlareYin
 
 * NOTE: if you use GTK3 <3.18 you need to relink the gtk-3.14/16 folder to gtk-3.0.
 
+#####Optional
+
 - If you want to change the blue highlight color to something else:
 
  * needs sed, imagemagick(convert), 7z, make, bc, and find! - you may should install [yad](http://sourceforge.net/projects/yad-dialog) or [qarma](https://github.com/luebking/qarma) for a better color selection.
@@ -58,7 +60,7 @@ ln -s Glare/GlareYin
 sh x-changecolor.sh
 ```
 
-- You can also build [gresource](https://developer.gnome.org/gio/stable/GResource.html#GResource.description) files:
+- You can also build GTK3 [gresource](https://developer.gnome.org/gio/stable/GResource.html#GResource.description) files:
 
  * needs sed, find & bash
 
