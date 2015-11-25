@@ -16,9 +16,9 @@ A theme made for traditional desktops (Titlebar>Menubar>Toolbar>Content)
 * Customizable selection color.
 * Very lightweight, there are no animations or transitions.
 * functionality > eye candy.
-* real tabs
-* GTK3 Headerbars are toolbars (no double titlebars)
-* uses colorful icons by default (no cheap mono icons)
+* GTK3: real tabs
+* GTK3: Headerbars are toolbars (no double titlebars) I recommend to use  PCMans nocsd hack: https://github.com/PCMan/gtk3-nocsd
+* GTK3: uses colorful icons by default (no cheap mono icons)
 
 #####Whats included?
 
