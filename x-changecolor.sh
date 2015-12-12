@@ -49,7 +49,7 @@ if type yad >/dev/null 2>&1; then
 elif type qarma >/dev/null 2>&1; then
 	newcolor=$(qarma --color-selection --color=#407dec --title="Please select a new #RRGGBB hilight color")
 else
-	read -p "Please enter your new hilight color in #RRGGBB(#407dec is currently set): " newcolor
+	read -p "Please enter your new hilight color in #RRGGBB(The '#' is a must!, #407dec is currently set): " newcolor
 fi
 if [ "$newcolor" = "" ]; then
 	printf "no color was was selected, aborting!"
