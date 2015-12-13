@@ -1,4 +1,4 @@
-A theme made for traditional desktops (Titlebar>Menubar>Toolbar>Content)
+A simple widget theme for a less distracted desktop experience 
 
 # Contents
 
@@ -54,7 +54,7 @@ ln -s Glare/GlareYin
 
 - If you want to change the blue highlight color to something else:
 
- * needs sed, imagemagick(convert), 7z, make, bc, and find! - you may should install [yad](http://sourceforge.net/projects/yad-dialog) or [qarma](https://github.com/luebking/qarma) for a better color selection.
+ * needs sed, imagemagick(convert), 7z, make, bc, and find! - you may should install [yad](http://sourceforge.net/projects/yad-dialog) or [qarma-qt5](https://github.com/luebking/qarma) for a better color selection.
 
 ```
 sh x-changecolor.sh

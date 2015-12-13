@@ -1,4 +1,4 @@
-LxQtPanel #BackgroundWidget,
+LXQtPanel #BackgroundWidget,
 #TaskBar QToolButton,
 TrayIcon {
 	border:none;
@@ -114,11 +114,11 @@ QToolButton {
 /*Volume*/
 VolumePopup {
 	border:1px solid rgba(0,0,0,0.1);
-	background:white;
+	background:palette(base);
 	padding:0px;}
 
 VolumePopup > QLabel{
-	color:white;
+	color:palette(text);
 	font-size:1pt;
 	padding:0px;}
 
@@ -148,9 +148,12 @@ QCalendarWidget QWidget#qt_calendar_navigationbar {
 
 /*Taskbar*/
 
-#TaskBar QToolButton:on,
 #TaskBar QToolButton:hover{
 	color:white;}
+
+#TaskBar QToolButton:on{
+	color:white;
+	background:palette(highlight);}
 
 #TaskBar LxQtGroupPopup {
     background:black;

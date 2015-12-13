@@ -3,71 +3,50 @@ if [ ! -t 0 ]; then
 	x-terminal-emulator -e "$0"
 	exit 0
 fi
+
 basedir="$(dirname "$(readlink -f "${0}")")"
 cd "$basedir"
 if [ ! -f x-changecolor.sh ]; then
 	exit 1
 fi
+color="$1"
+case $color in
+	-c|--color)
+	newcolor="$2";;
+esac
 
 ###things we need here
-type convert >/dev/null 2>&1 || {
-	echo >&2 "I require ImageMagick(convert) but it's not installed. Aborting."
-	_missing_dep=1
-}
-type composite >/dev/null 2>&1 || {
-	echo >&2 "I require ImageMagick(composite) but it's not installed. Aborting."
-	_missing_dep=1
-}
-type sed >/dev/null 2>&1 || { 
-	echo >&2 "I require GNUsed but it's not installed. Aborting."
-	_missing_dep=1
-}
-type bc >/dev/null 2>&1 || {
-	echo >&2 "I require bc but it's not installed. Aborting."
-	_missing_dep=1
-}
-type tr >/dev/null 2>&1 || {
-	echo >&2 "I require tr but it's not installed. Aborting."
-	_missing_dep=1
-}
-type 7z >/dev/null 2>&1 || {
-	echo >&2 "I require p7zip(7z) but it's not installed. Aborting."
-	_missing_dep=1
-}
-type make >/dev/null 2>&1 || {
-	echo >&2 "I require make but it's not installed. Aborting."
-	_missing_dep=1
-}
-if [ "$_missing_dep" = "1" ]; then
-	sleep 5
-	exit 1
-fi
+type convert >/dev/null 2>&1||\
+type composite >/dev/null 2>&1||\
+type sed >/dev/null 2>&1||\
+type bc >/dev/null 2>&1||\
+type tr >/dev/null 2>&1||\
+type 7z >/dev/null 2>&1||\
+type find >/dev/null 2>&1||\
+type make >/dev/null 2>&1|\
+printf "You either miss Imagemagick, sed, bc, tr, 7z(p7zip) or make! Aborting!"
 
 ###set the color
-if type yad >/dev/null 2>&1; then
-	newcolor=$(yad --color --init-color=#407dec --title="Please select a new #RRGGBB hilight color")
-elif type qarma >/dev/null 2>&1; then
-	newcolor=$(qarma --color-selection --color=#407dec --title="Please select a new #RRGGBB hilight color")
-else
-	read -p "Please enter your new hilight color in #RRGGBB(The '#' is a must!, #407dec is currently set): " newcolor
+if [ -z ${newcolor+x} ]; then 
+	if type yad >/dev/null 2>&1; then
+		newcolor=$(yad --color --init-color=#407dec --title="Please select a new #RRGGBB hilight color")
+	elif type qarma >/dev/null 2>&1; then
+		newcolor=$(qarma --color-selection --color=#407dec --title="Please select a new #RRGGBB hilight color")
+	else
+		read -p "Please enter your new hilight color in #RRGGBB(The '#' is a must!, #407dec is currently set): " newcolor
+	fi
 fi
-if [ "$newcolor" = "" ]; then
+if [ -z ${newcolor+x} ]; then
 	printf "no color was was selected, aborting!"
 	exit 1
 fi
+
 ###some fail colors(colors already used by theme)
-if [ "$newcolor" = "#ff00ff" ]; then
-	printf "this color is not available, aborting!"
-	exit 1
-fi
-if [ "$newcolor" = "#ffffff" ]; then
-	printf "this color is not available, aborting!"
-	exit 1
-fi
-if [ "$newcolor" = "#ec4040" ]; then
-	printf "this color is not available, aborting!"
-	exit 1
-fi
+case "${newcolor//#/}|tr '[:upper:]' '[:lower:]" in
+	ff00ff|ffffff|ec4040|4a4a4a|282828|1a1a1a|1d1d1d|40acee|bf33de|383838|333333|888888|f5f5f5|bf33de|e6e6e6|5a5a5a|999999|dbdbdb|f1f1f1|fbfbfb)
+		printf "this color is not available, aborting!"
+		exit 1;;
+esac
 
 ###convert hex to rgb
 newcolorhexup=$(echo "$newcolor"|sed 's/#//'|tr '[:lower:]' '[:upper:]')
@@ -150,7 +129,7 @@ for _folder in $_folders; do
 done
 cd ..
 
-####create a colored wallpaper in the current resolution for feh, nitrogen & co
+####create a colored wallpaper in the current resolution for feh, nitrogen, lxqt & co
 cd $basedir
 if type xrandr >/dev/null 2>&1; then
 	desktopres=$(xrandr|grep '*'|awk '{print $1}')
@@ -162,6 +141,7 @@ else
 fi
 convert -size $desktopres gradient:$newcolordarkhex-$newcolor /tmp/glarewpgradient.png
 composite -tile EXTRAS/Wallpapers/Patterns/Glare_lines_trans.png /tmp/glarewpgradient.png EXTRAS/Wallpapers/Fixed/Glare_colorlines.png
+cp -f EXTRAS/Wallpapers/Fixed/Glare_colorlines.png EXTRAS/LXQtTheme/Glare/images/Glare_colorlines.png
 
 ###modify this script, too
 sed -i 's/#407dec/'$newcolor'/g' x-changecolor.sh
