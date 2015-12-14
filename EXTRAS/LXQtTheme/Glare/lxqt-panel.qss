@@ -15,16 +15,23 @@ QToolTip {
 	margin:0px;
 	font:bold;}
 
-QToolButton {
-	background:none;
+QToolButton,
+QToolButton:pressed {
+	padding:1px;
 	border:none;}
+
+QLineEdit {
+	padding:1px;
+	background: rgba(255,255,255,0.1);
+	border: 1px solid rgba(255,255,255,0.01);
+	color:white;}
 
 /*menuplugin*/
 
 #MainMenu {
 	qproperty-icon: url(images/start.svg);
 	padding:5px;
-	font:bold;
+	font:regular;
 	margin:-1px;}
 
 /*pager*/
@@ -45,9 +52,16 @@ QToolButton {
 
 /*keyboardindicator*/
 
-#KbIndicator {
-	margin:5;
+#KbIndicator {}
+
+#Kbindicator > QLabel {
+	font:bold;
+	color:grey;}
+
+#KbIndicator QLabel:enabled {
+	color:palette(highlight);
 	font:bold;}
+
 
 /*Sensors*/
 
@@ -78,9 +92,6 @@ QToolButton {
 #ColorPicker {
 	padding:0;}
 
-#ColorPicker QLineEdit {
-	background: rgba(255,255,255,0.1);
-	border: 1px solid rgba(255,255,255,0.01);}
 
 #ColorPicker QToolButton {
 	qproperty-icon: url(images/colorpicker.svg);
@@ -92,22 +103,23 @@ QToolButton {
 	background:rgba(255,255,255,0.1)}
 
 /*CPULoad*/
-#LxQtCpuLoad {
+#LXQtCpuLoad {
 	padding:2;
 	qproperty-fontColor:grey;}
 
 /*Mount*/
-#LxQtMountPopup {
+#LXQtMountPopup {
 	border:1px solid rgba(0,0,0,0.1);
-	background:white;
+	background:palette(base);
+
 	padding:20px;}
 
-#LxQtMountPopup QLabel,
-#LxQtMountPopup MenuDiskItem {
+#LXQtMountPopup QLabel,
+#LXQtMountPopup MenuDiskItem {
 	padding:5px;}
 
-#LxQtMountPopup QLabel:hover,
-#LxQtMountPopup MenuDiskItem:hover {
+#LXQtMountPopup QLabel:hover,
+#LXQtMountPopup MenuDiskItem:hover {
 	margin:1;
 	background:rgba(0,0,0,0.04)}
 
@@ -127,6 +139,7 @@ VolumePopup > QLabel{
 #Clock #DateLabel,
 #WorldClock #WorldClockContent {
 	font:bold;
+	color:grey;
 	padding:1px;}
 
 QCalendarWidget > QWidget{
@@ -138,10 +151,8 @@ QCalendarWidget QWidget#qt_calendar_navigationbar {
 	border-bottom:none;}
 
 /*misc*/
-#PanelScreenSaver,
-#ShowDesktop,
-#Dom,
-#TrayPlugin,
+#PanelScreenSaver, #ShowDesktop,
+#Dom, #TrayPlugin,
 #NetworkMonitor {
 	padding:1px;
 	background:black;}
@@ -155,6 +166,6 @@ QCalendarWidget QWidget#qt_calendar_navigationbar {
 	color:white;
 	background:palette(highlight);}
 
-#TaskBar LxQtGroupPopup {
+#TaskBar LXQtGroupPopup {
     background:black;
     border: none;}
