@@ -105,13 +105,13 @@ warhexddark=$(echo "obase=16; $warddark"|bc)
 waghexddark=$(echo "obase=16; $wagddark"|bc)
 wabhexddark=$(echo "obase=16; $wabddark"|bc)
 #####make sure hex is 2 bin digits
-if [ ${#warhexdark} -lt 2 ]; then
+if [ ${#warhexddark} -lt 2 ]; then
 	wagrexddark="$warhexddark$warhexddark"
 fi
-if [ ${#waghexdark} -lt 2 ]; then
+if [ ${#waghexddark} -lt 2 ]; then
 	waghexddark="$waghexddark$waghexddark"
 fi
-if [ ${#wabhexdark} -lt 2 ]; then
+if [ ${#wabhexddark} -lt 2 ]; then
 	wabhexddark="$wabhexddark$wabhexddark"
 fi
 #add the number sign
@@ -123,7 +123,11 @@ for _folder in $_folders; do
 	find "$basedir/$_folder" -type f -exec sed -i 's/#407dec/'$newcolor'/g' {} \;
 	find "$basedir/$_folder" -type f -exec sed -i 's/64,125,236/'$newcolorrgb'/g' {} \;
 	find "$basedir/$_folder" -type f -name '*.png' -exec convert {} -define png:format=png32 -fill "$newcolor" -opaque "#407dec" {} \;
-	find "$basedir/$_folder" -type f -exec sed -i 's/#0e3783/'$newcolorddarkhex'/g' {} \;
+	case ${PWD##*/} in
+		GlareYang|GlareYin)
+			sed -i 's/#2c55a1/'$newcolordarkhex'/g' openbox-3/themerc
+			sed -i 's/#0e3783/'$newcolorddarkhex'/g' openbox-3/themerc;;
+	esac
 	cd $basedir
 done
 
@@ -161,10 +165,10 @@ cd ..
 
 ####create a colored wallpaper in the current resolution for feh, nitrogen, lxqt & co
 cd $basedir
-if type xrandr >/dev/null 2>&1; then
-	desktopres=$(xrandr|grep '*'|awk '{print $1}')
-elif type xdpyinfo >/dev/null 2>&1; then
+if type xdpyinfo >/dev/null 2>&1; then
 	desktopres=$(xdpyinfo|grep 'dimensions:'|awk '{print $2}')
+elif type xrandr >/dev/null 2>&1; then
+	desktopres=$(xrandr|grep '*'|awk '{print $1}'|head -1)
 else
 	#if we fail create a big fat wp
 	desktopres="4096x2160"
