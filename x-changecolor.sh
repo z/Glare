@@ -23,8 +23,9 @@ type bc >/dev/null 2>&1||\
 type tr >/dev/null 2>&1||\
 type 7z >/dev/null 2>&1||\
 type find >/dev/null 2>&1||\
+type awk >/dev/null 2>&1||\
 type make >/dev/null 2>&1|\
-printf "You either miss Imagemagick, sed, bc, tr, 7z(p7zip) or make! Aborting!"
+printf "You either miss Imagemagick, awk, sed, bc, tr, 7z(p7zip) or make! Aborting!"
 
 ###set the color
 if [ -z ${newcolor+x} ]; then 
@@ -76,17 +77,45 @@ waghexdark=$(echo "obase=16; $wagdark"|bc)
 wabhexdark=$(echo "obase=16; $wabdark"|bc)
 #####make sure hex is 2 bin digits
 if [ ${#warhexdark} -lt 2 ]; then
-wagrexdark="$warhexdark$warhexdark"
+	wagrexdark="$warhexdark$warhexdark"
 fi
 if [ ${#waghexdark} -lt 2 ]; then
-waghexdark="$waghexdark$waghexdark"
+	waghexdark="$waghexdark$waghexdark"
 fi
 if [ ${#wabhexdark} -lt 2 ]; then
-wabhexdark="$wabhexdark$wabhexdark"
+	wabhexdark="$wabhexdark$wabhexdark"
 fi
 #add the number sign
 newcolordarkhex="#${warhexdark}${waghexdark}${wabhexdark}"
-
+#an even darker color for the openbox themes
+warddark=$(expr $wardark - 33)
+wagddark=$(expr $wagdark - 21)
+wabddark=$(expr $wabdark - 0)
+#####no negative numbers
+if [ "$warddark" -lt "0" ]; then
+	warddark=$(expr $warddark - $warddark)
+fi
+if [ "$wagddark" -lt "0" ]; then
+	wagddark=$(expr $wagddark - $wagddark)
+fi
+if [ "$wabddark" -lt "0" ]; then
+	wabddark=$(expr $wabddark - $wabddark)
+fi
+warhexddark=$(echo "obase=16; $warddark"|bc)
+waghexddark=$(echo "obase=16; $wagddark"|bc)
+wabhexddark=$(echo "obase=16; $wabddark"|bc)
+#####make sure hex is 2 bin digits
+if [ ${#warhexdark} -lt 2 ]; then
+	wagrexddark="$warhexddark$warhexddark"
+fi
+if [ ${#waghexdark} -lt 2 ]; then
+	waghexddark="$waghexddark$waghexddark"
+fi
+if [ ${#wabhexdark} -lt 2 ]; then
+	wabhexddark="$wabhexddark$wabhexddark"
+fi
+#add the number sign
+newcolorddarkhex="#${warhexddark}${waghexddark}${wabhexddark}"
 ###recolor the xfwm/ui themes
 _folders="xfwm4 GlareYang GlareYin xfce-notify-4.0 balou"
 for _folder in $_folders; do
@@ -94,6 +123,7 @@ for _folder in $_folders; do
 	find "$basedir/$_folder" -type f -exec sed -i 's/#407dec/'$newcolor'/g' {} \;
 	find "$basedir/$_folder" -type f -exec sed -i 's/64,125,236/'$newcolorrgb'/g' {} \;
 	find "$basedir/$_folder" -type f -name '*.png' -exec convert {} -define png:format=png32 -fill "$newcolor" -opaque "#407dec" {} \;
+	find "$basedir/$_folder" -type f -exec sed -i 's/#0e3783/'$newcolorddarkhex'/g' {} \;
 	cd $basedir
 done
 
@@ -146,27 +176,7 @@ cp -f EXTRAS/Wallpapers/Fixed/Glare_colorlines.png EXTRAS/LXQtTheme/Glare/images
 ###modify this script, too
 sed -i 's/#407dec/'$newcolor'/g' x-changecolor.sh
 sed -i 's/64,125,236/'$newcolorrgb'/g' x-changecolor.sh
-sed -i 's/2c55a1/'$newcolordarkhex'/g' x-changecolor.sh
+sed -i 's/#2c55a1/'$newcolordarkhex'/g' x-changecolor.sh
+sed -i 's/#0e3783/'$newcolorddarkhex'/g' x-changecolor.sh
 
 printf "\n\ndone\n\n"
-sleep 3
-
-###########very old stuff just keep this here until a opebox theme comes back
-####recolor the openbox theme
-#rdark=$(expr $r - 30)
-#gdark=$(expr $g - 30)
-#bdark=$(expr $b - 30)
-#if [ "$rdark" -lt "0" ]; then
-	#rdark=$(expr $rdark - $rdark)
-#fi
-#if [ "$gdark" -lt "0" ]; then
-	#gdark=$(expr $gdark - $gdark)
-#fi
-#if [ "$bdark" -lt "0" ]; then
-	#bdark=$(expr $bdark - $bdark)
-#fi
-#rhexdark=$(echo "obase=16; $rdark"|bc)
-#ghexdark=$(echo "obase=16; $gdark"|bc)
-#bhexdark=$(echo "obase=16; $bdark"|bc)
-#find "$basedir" -type f -name "themerc" -exec sed -i "s#rgb:40/7d/ec#rgb:$rhexup\/$ghexup\/$bhexup#g" {} \;
-#find "$basedir" -type f -name "themerc" -exec sed -i "s#rgb:32/62/b9#rgb:$rhexdark\/$ghexdark\/$bhexdark#g" {} \;
