@@ -31,8 +31,13 @@ QLineEdit {
 #MainMenu {
 	qproperty-icon: url(images/start.svg);
 	padding:5px;
-	font:regular;
+	font:bold;
 	margin:-1px;}
+
+#MainMenu QMenu{
+	font:regular;
+	color:palette(windowText);
+	border:1px solid rgba(0,0,0,0.2);}
 
 /*pager*/
 
