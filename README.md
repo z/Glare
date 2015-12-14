@@ -1,4 +1,4 @@
-A simple widget theme for a less distracted desktop experience 
+A simple toolkit independent theme for a less distracted desktop experience http://sixsixfive.deviantart.com/art/Glare-494114516
 
 # Contents
 
@@ -9,16 +9,15 @@ A simple widget theme for a less distracted desktop experience
 * [Bugs](#bugs)
 * [Todo](#todo)
 
-
 ###Features
 
 * Dark and bright versions.
 * Customizable selection color.
 * Very lightweight, there are no animations or transitions.
 * functionality > eye candy.
-* GTK3: real tabs
-* GTK3: Headerbars are toolbars (no double titlebars) I recommend to use  PCMans nocsd hack: https://github.com/PCMan/gtk3-nocsd
-* GTK3: uses colorful icons by default (no cheap mono icons)
+* GTK3: real tabs 
+* GTK3: Headerbars are drawn as toolbars. I recommend to use PCMans [nocsd hack](https://github.com/PCMan/gtk3-nocsd).
+* GTK3: uses colorful icons by default (better integration into other desktop environments)
 
 #####Whats included?
 
@@ -117,8 +116,10 @@ Note: the dirs might differ in your Distribution!
 - KDE color scheme
 
 ```
+/usr/share/color-schemes/<theme>.colors
 /usr/share/apps/color-schemes/<theme>.colors
 ~/.local/share/apps/color-schemes/<theme>.colors
+~/.kde/share/apps/color-schemes/<theme>.colors
 ```
 - Qt4 color scheme(not needed anymore) 
 
@@ -126,54 +127,63 @@ Note: the dirs might differ in your Distribution!
 /etc/xdg/Trolltech.conf
 ~/.config/Trolltech.conf
 ```
-- KDE settings(only if there is no kde installed)
+
+- KDE settings(only if there is no kde installed, and only needed to set the colors of KDE apps without systemsettings)
 
 ```
 ~/.kde/share/config/kdeglobals
 ```
+
 - Aurorae(abandoned, the only available Aurora theme is the old default theme!((EXTRAS/WinDecos/Glare-default)))
 
 ```
 /usr/share/apps/aurorae/themes/<themedir>
 ~/.kde/share/apps/aurorae/themes/<themedir>
 ```
+
 - very simple compton settings
+
 
 ```
 /etc/xdg/compton.conf
 ~/.compton.conf
+
 ```
-- LXQt theme
+- LXQt 0.10 theme
 
 ```
 /usr/share/lxqt/themes/<themedir>
 ```
-- Qmmp(note that Glare is now incuded in Qmmp!)
+
+- Qmmp(note that the default theme is based on Glare)
 
 ```
 $HOME/.qmmp/skins/<theme>.wsz
 /usr/share/qmmp/skins/<theme>.wsz
 ```
+
 - Audacious
 
 ```
 /usr/share/audacious/Skins/<theme>.wsz
 ```
+
 - Promoe(copy the folder instead of the packaged theme)
 
 ```
 /usr/share/promoe/skins/<themedir>
 ```
 
-- PaleMoon
-  * just drag and drop the xpi into PaleMoon
-
 - SliM
 
 ```
 /usr/share/slim/themes/<themedir>
 ```
-###Bugs
+
+- PaleMoon
+  * just drag and drop the xpi into PaleMoon(or open it with PaleMoon)
+
+###Bugs:
 
 * since GTK3.16 I use dots as arrows because GTK3 makes it impossible to theme arrows within the toolkit theme.
 
