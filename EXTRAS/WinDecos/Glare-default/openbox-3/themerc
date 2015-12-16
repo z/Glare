@@ -3,7 +3,7 @@
 
 # Menu settings
 menu.title.bg: Flat Solid
-menu.title.bg.color: rgb:40/7d/ec
+menu.title.bg.color: #407dec
 menu.title.text.color: #ffffff
 menu.title.text.justify: Right
 
@@ -13,7 +13,7 @@ menu.items.text.color: #555555
 menu.items.disabled.text.color: #dadada
 
 menu.items.active.bg: Flat Vertical
-menu.items.active.bg.color: rgb:40/7d/ec
+menu.items.active.bg.color: rgb:#407dec
 menu.items.active.text.color: #fafafa
 menu.separator.color: #cccccc
 
@@ -36,7 +36,7 @@ window.active.button.unpressed.image.color: rgb:5A/5A/5A
 
 window.active.button.pressed.bg: Flat Solid
 window.active.button.pressed.bg.color: rgb:FF/FF/FF
-window.active.button.pressed.image.color:rgb:40/7d/ec
+window.active.button.pressed.image.color:rgb:#407dec
 
 window.active.button.disabled.bg: Flat Solid
 window.active.button.disabled.bg.color: rgb:FF/FF/FF

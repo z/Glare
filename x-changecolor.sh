@@ -3,7 +3,6 @@ if [ ! -t 0 ]; then
 	x-terminal-emulator -e "$0"
 	exit 0
 fi
-
 basedir="$(dirname "$(readlink -f "${0}")")"
 cd "$basedir"
 if [ ! -f x-changecolor.sh ]; then
@@ -14,7 +13,6 @@ case $color in
 	-c|--color)
 	newcolor="$2";;
 esac
-
 ###things we need here
 type convert >/dev/null 2>&1||\
 type composite >/dev/null 2>&1||\
@@ -26,7 +24,6 @@ type find >/dev/null 2>&1||\
 type awk >/dev/null 2>&1||\
 type make >/dev/null 2>&1|\
 printf "You either miss Imagemagick, awk, sed, bc, tr, 7z(p7zip) or make! Aborting!"
-
 ###set the color
 if [ -z ${newcolor+x} ]; then 
 	if type yad >/dev/null 2>&1; then
@@ -41,14 +38,12 @@ if [ -z ${newcolor+x} ]; then
 	printf "no color was was selected, aborting!"
 	exit 1
 fi
-
 ###some fail colors(colors already used by theme)
 case "${newcolor//#/}|tr '[:upper:]' '[:lower:]" in
 	ff00ff|ffffff|ec4040|4a4a4a|282828|1a1a1a|1d1d1d|40acee|bf33de|383838|333333|888888|f5f5f5|bf33de|e6e6e6|5a5a5a|999999|dbdbdb|f1f1f1|fbfbfb)
 		printf "this color is not available, aborting!"
 		exit 1;;
 esac
-
 ###convert hex to rgb
 newcolorhexup=$(echo "$newcolor"|sed 's/#//'|tr '[:lower:]' '[:upper:]')
 rhexup=$(echo $newcolorhexup|cut -c-2)
@@ -130,7 +125,6 @@ for _folder in $_folders; do
 	esac
 	cd $basedir
 done
-
 ### EXTRAS ###
 cd EXTRAS
 ###config files
@@ -148,7 +142,6 @@ make
 cd ../..
 ###Winamp Skin
 cd Winamp2.xSkin
-
 _folders="Glare Glare-qmmp"
 for _folder in $_folders; do
 	cd $_folder
@@ -162,7 +155,6 @@ for _folder in $_folders; do
 	cd ..
 done
 cd ..
-
 ####create a colored wallpaper in the current resolution for feh, nitrogen, lxqt & co
 cd $basedir
 if type xdpyinfo >/dev/null 2>&1; then
@@ -176,8 +168,8 @@ fi
 convert -size $desktopres gradient:$newcolordarkhex-$newcolor /tmp/glarewpgradient.png
 composite -tile EXTRAS/Wallpapers/Patterns/Glare_lines_trans.png /tmp/glarewpgradient.png EXTRAS/Wallpapers/Fixed/Glare_colorlines.png
 cp -f EXTRAS/Wallpapers/Fixed/Glare_colorlines.png EXTRAS/LXQtTheme/Glare/images/Glare_colorlines.png
-
 ###modify this script, too
+#ntms thats dumb the script will mostly only work once...
 sed -i 's/#407dec/'$newcolor'/g' x-changecolor.sh
 sed -i 's/64,125,236/'$newcolorrgb'/g' x-changecolor.sh
 sed -i 's/#2c55a1/'$newcolordarkhex'/g' x-changecolor.sh
