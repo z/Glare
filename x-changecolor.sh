@@ -72,7 +72,7 @@ waghexdark=$(echo "obase=16; $wagdark"|bc)
 wabhexdark=$(echo "obase=16; $wabdark"|bc)
 #####make sure hex is 2 bin digits
 if [ ${#warhexdark} -lt 2 ]; then
-	waghexdark="$warhexdark$warhexdark"
+	warhexdark="$warhexdark$warhexdark"
 fi
 if [ ${#waghexdark} -lt 2 ]; then
 	waghexdark="$waghexdark$waghexdark"
