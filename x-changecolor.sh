@@ -14,16 +14,20 @@ case $color in
 	newcolor="$2";;
 esac
 ###things we need here
-type convert >/dev/null 2>&1||\
-type composite >/dev/null 2>&1||\
-type sed >/dev/null 2>&1||\
-type bc >/dev/null 2>&1||\
-type tr >/dev/null 2>&1||\
-type 7z >/dev/null 2>&1||\
-type find >/dev/null 2>&1||\
-type awk >/dev/null 2>&1||\
-type make >/dev/null 2>&1|\
-printf "You either miss Imagemagick, awk, sed, bc, tr, 7z(p7zip) or make! Aborting!"
+type convert >/dev/null 2>&1 &&
+type composite >/dev/null 2>&1 &&
+type sed >/dev/null 2>&1 &&
+type bc >/dev/null 2>&1 &&
+type tr >/dev/null 2>&1 &&
+type 7z >/dev/null 2>&1 &&
+type find >/dev/null 2>&1 && 
+type awk >/dev/null 2>&1 &&
+type make >/dev/null 2>&1||_missingdep=true
+case $_missingdep in
+	true)
+		printf "You either miss Imagemagick, awk, sed, bc, tr, 7z(p7zip) or make! Aborting!\n"
+		exit 1;;
+esac
 ###set the color
 if [ -z ${newcolor+x} ]; then 
 	if type yad >/dev/null 2>&1; then
