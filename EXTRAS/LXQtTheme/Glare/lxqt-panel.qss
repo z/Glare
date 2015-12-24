@@ -13,7 +13,8 @@ QToolTip {
 	background:black;
 	padding:1px;
 	margin:0px;
-	font:bold;}
+	font:bold;
+	color:white;}
 
 QToolButton,
 QToolButton:pressed {
