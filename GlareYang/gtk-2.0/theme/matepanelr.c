@@ -23,6 +23,7 @@ engine""{}}
 class "*PanelWidget*" style "matepanel"
 widget_class "*PanelWidget*" style "matepanel"
 widget_class "*MatePanelApplet*" style "matepanel"
+widget_class "*PanelToplevel*" style "matepanel"
 
 style "matepanelmenu"{
 xthickness=0
