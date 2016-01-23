@@ -28,7 +28,6 @@ A simple toolkit independent theme for a less distracted desktop experience http
 * Xfwm4, Metacity/Marco theme (there are many more in the EXTRAS/WinDecos folder)
 * matching Winamp 2.x(QMMP, Audacious) Skin
 * LXQt panel theme
-* SLiM theme(req. DejaVu Sans)
 * A tab and color fix for the Pale Moon Web Browser
 * and more tiny stuff
 

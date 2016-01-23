@@ -6,9 +6,16 @@ Notification {
 QLabel {
 	color:white;}
 
-#closeButton {
-	border: none;
-	qproperty-icon: url(images/trans.svg);}
-
-#appLabel {
+#appLabel,
+#summaryLabel {
 	font:bold;}
+
+#closeButton {
+	qproperty-iconSize:22px;
+	border: none;
+	qproperty-icon: url(images/close.svg);}
+
+QPushButton{
+	background:black;
+	border:none;
+	color:palette(highlight);}

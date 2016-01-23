@@ -4,8 +4,10 @@
 	margin:0px;}
 
 #panel QLineEdit {
-	background: rgba(255,255,255,0.1);
-	border: 1px solid rgba(255,255,255,0.01);}
+	background:rgba(255,255,255,0.1);
+	border:1px solid rgba(255,255,255,0.01);
+	color:white;
+	font:bold;}
 
 QToolButton {
 	margin:1px;
@@ -14,15 +16,16 @@ QToolButton {
 	padding:0px;}
 
 #closeButton {
-	qproperty-icon: url(images/ivy-close.svg);
-	qproperty-iconSize:22px;}
+	qproperty-icon: url(images/close.svg);
+	qproperty-iconSize:22px;
+	border:none;}
 
 #actionButton {
-	qproperty-iconSize:22px;}
-
-#actionButton::menu-indicator {
-	subcontrol-position: right bottom;
-	subcontrol-origin: margin;}
+	qproperty-icon: url(images/arrow.svg);
+	qproperty-iconSize:22px;
+	padding:5px;
+	color:black;
+	border:none;}
 
 #commandList {
 	border:1px solid #bfbfbf;

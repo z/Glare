@@ -1,6 +1,10 @@
 LXQtPanel #BackgroundWidget,
-#TaskBar QToolButton,
-TrayIcon {
+#TrayPlugin,
+#Tray,
+TrayIcon,
+LXQtPanelPlugin,
+Plugin > QWidget > QToolButton,
+#TaskBar QToolButton {
 	border:none;
 	background:black;
 	color:grey;
@@ -8,20 +12,12 @@ TrayIcon {
 	padding:0px;
 	margin:0px;}
 
-QToolTip {
-	border: 1px solid black;
-	background:black;
-	padding:1px;
-	margin:0px;
-	font:bold;
-	color:white;}
-
-QToolButton,
-QToolButton:pressed {
+LXQtPanel #TaskBar QToolButton,
+LXQtPanel #TaskBar QToolButton:pressed {
 	padding:1px;
 	border:none;}
 
-QLineEdit {
+LXQtPanel QLineEdit {
 	padding:1px;
 	background: rgba(255,255,255,0.1);
 	border: 1px solid rgba(255,255,255,0.01);
@@ -29,16 +25,16 @@ QLineEdit {
 
 /*menuplugin*/
 
-#MainMenu {
+#MainMenu.QToolButton {
 	qproperty-icon: url(images/start.svg);
 	padding:5px;
 	font:bold;
-	margin:-1px;}
+	border:none;
+	color:grey;
+	background:black;}
 
 #MainMenu QMenu{
-	font:regular;
-	color:palette(windowText);
-	border:1px solid rgba(0,0,0,0.2);}
+	font:regular;}
 
 /*pager*/
 
@@ -151,9 +147,10 @@ VolumePopup > QLabel{
 QCalendarWidget > QWidget{
 	border:1px solid palette(light);}
 
+QCalendarWidget QWidget#qt_calendar_navigationbar,
 QCalendarWidget QWidget#qt_calendar_navigationbar {
-	background:palette(base);
-	color:palette(text);
+	background:palette(Highlight);
+	color:palette(HighlightedText);
 	border-bottom:none;}
 
 /*misc*/
@@ -170,7 +167,7 @@ QCalendarWidget QWidget#qt_calendar_navigationbar {
 
 #TaskBar QToolButton:on{
 	color:white;
-	background:palette(highlight);}
+	background:palette(Highlight);}
 
 #TaskBar LXQtGroupPopup {
     background:black;
