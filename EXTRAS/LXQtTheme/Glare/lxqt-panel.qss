@@ -14,7 +14,7 @@ Plugin > QWidget > QToolButton,
 
 LXQtPanel #TaskBar QToolButton,
 LXQtPanel #TaskBar QToolButton:pressed {
-	padding:1px;
+	padding:0px;
 	border:none;}
 
 LXQtPanel QLineEdit {
